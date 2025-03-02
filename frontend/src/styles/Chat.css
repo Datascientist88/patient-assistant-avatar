@@ -71,8 +71,35 @@
 }
 
 /* Toggle Button */
-.toggle-button {
+.toggle-button-container {
   position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 22px;
+  right: 20px;
+  z-index: 11;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.toggle-button-container:hover {
+  transform: scale(1.05);
+}
+
+.toggle-text {
+  background: linear-gradient(145deg, #00b0f0, #00d4ff);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-button {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,19 +107,12 @@
   width: 38px;
   border: none;
   border-radius: 50%;
-  bottom: 22px;
-  right: 20px;
   font-size: 1.8rem;
   background: linear-gradient(145deg, #00b0f0, #00d4ff);
   color: #fff;
-  cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 11;
-  transition: transform 0.3s ease;
-}
-
-.toggle-button:hover {
-  transform: scale(1.1);
+  bottom: auto;
+  right: auto;
 }
 
 /* Chat Messages */
@@ -208,8 +228,13 @@
     font-size: 0.9rem;
   }
 
-  .toggle-button {
-    right: 10%;
+  .toggle-button-container {
+    right: 10px;
+  }
+
+  .toggle-text {
+    font-size: 0.8rem;
+    padding: 6px 12px;
   }
 
   .avatar {
@@ -236,8 +261,8 @@
     font-size: 0.8rem;
   }
 
-  .toggle-button {
-    right: 10%;
+  .toggle-text {
+    display: none;
   }
 
   .avatar {
