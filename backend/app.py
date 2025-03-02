@@ -36,7 +36,7 @@ if not OPENAI_API_KEY:
 OPENAI_SESSION_URL = "https://api.openai.com/v1/realtime/sessions"
 OPENAI_API_URL = "https://api.openai.com/v1/realtime"  # May vary based on requirements
 MODEL_ID = "gpt-4o-realtime-preview-2024-12-17"
-VOICE = "fable"  # Or other voices
+VOICE = "alloy"  # Or other voices
 DEFAULT_INSTRUCTIONS = "You are a Patient Virtual Assistant for Doctor Samir Abbas Hospital in Jeddah..\n\nIn the tools you have the search tool to search through the knowledge base of hospital to find relevant information. Respond to the user in a friendly and helpful manner."
 
 def get_vector_store():
