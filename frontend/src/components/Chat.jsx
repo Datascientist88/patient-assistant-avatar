@@ -70,7 +70,7 @@ const Chat = () => {
   const handleSearch = async (query) => {
     try {
       const response = await fetch(
-        "https://realtime-api-0j11.onrender.com/api/search",
+        "https://patient-assistant-avatar-server-webrtc.onrender.com/api/search",
         {
           method: "POST",
           headers: {
@@ -287,16 +287,13 @@ const Chat = () => {
       const offer = await pc.createOffer();
       await pc.setLocalDescription(offer);
 
-      const response = await fetch(
-        "https://realtime-api-0j11.onrender.com/api/rtc-connect",
-        {
-          method: "POST",
-          body: offer.sdp,
-          headers: {
-            "Content-Type": "application/sdp",
-          },
-        }
-      );
+      const response = await fetch("https://patient-assistant-avatar-server-webrtc.onrender.com/api/rtc-connect", {
+        method: "POST",
+        body: offer.sdp,
+        headers: {
+          "Content-Type": "application/sdp",
+        },
+      });
 
       const answer = await response.text();
       await pc.setRemoteDescription({ sdp: answer, type: "answer" });
@@ -472,10 +469,9 @@ const Chat = () => {
           isDisabled={isConnecting}
         />
       </div>
-      <div className="toggle-button-container" onClick={toggleChatVisibility}>
-        {!isChatVisible && <span className="toggle-text">Let's chat!</span>}
-        <button className="toggle-button">{isChatVisible ? "-" : "+"}</button>
-      </div>
+      <button className="toggle-button" onClick={toggleChatVisibility}>
+        {isChatVisible ? "-" : "+"}
+      </button>
     </div>
   );
 };
