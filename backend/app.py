@@ -17,7 +17,7 @@ app = Flask(__name__)
 # Configure CORS to allow all origins (for development only)
 CORS(app, resources={
     r"/api/*": {
-        "origins": "https://patient-assistant-avatar-dsah.onrender.com",
+        "origins": "https://patient-assistant-avatar-v1.onrender.com",
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"]
     }
