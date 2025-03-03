@@ -22,6 +22,18 @@ const Chat = () => {
   const [isMicMuted, setIsMicMuted] = useState(true);
   const [isConnecting, setIsConnecting] = useState(false);
 
+   // Predefined questions in a logical workflow sequence
+   const predefinedQuestions = [
+    "Book an appointment",
+    "Find a clinic",
+    "Choose a doctor",
+    "Available specialties",
+    "Operating hours",
+    "Insurance coverage",
+    "Contact hospital",
+    "Emergency services",
+  ];
+
   const scrollToBottom = () => {
     if (chatContentRef.current) {
       chatContentRef.current.scrollTo({
@@ -64,6 +76,9 @@ const Chat = () => {
         },
       ];
     });
+  };
+const handlePredefinedQuestionClick = (question) => {
+    addMessageToChat(question, true);
   };
 
   // Add this function to handle search
@@ -439,7 +454,18 @@ const Chat = () => {
               </div>
             </div>
           ))}
-
+          
+          <div className="predefined-questions">
+            {predefinedQuestions.map((question, index) => (
+              <button
+                key={index}
+                className="predefined-question"
+                onClick={() => handlePredefinedQuestionClick(question)}
+              >
+                {question}
+              </button>
+            ))}
+          </div>
           {loading && (
             <div className="chat-message loading">
               <figure className="avatar">

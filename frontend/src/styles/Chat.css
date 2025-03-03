@@ -136,6 +136,34 @@
 .chat-message.me {
   justify-content: flex-end;
 }
+/* Styling predefined question buttons */
+.predefined-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0;
+  justify-content: center;
+}
+
+.predefined-question {
+  background-color: white;
+  border: 1px solid lightgrey;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  color: black;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+.predefined-question:hover {
+  background-color: #f1f1f1;
+}
+
+.predefined-question:active {
+  transform: scale(0.95);
+}
 
 [lang="ar"] {
   direction: rtl;
