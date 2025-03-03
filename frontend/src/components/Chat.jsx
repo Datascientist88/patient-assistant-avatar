@@ -80,7 +80,26 @@ const Chat = () => {
 const handlePredefinedQuestionClick = (question) => {
     addMessageToChat(question, true);
   };
+  if (!isWebRTCActive || !dataChannel) {
+    alert("Please start the connection first");
+    return;
+  }
 
+  const createMessage = {
+    type: "conversation.item.create",
+    item: {
+      type: "message",
+      role: "user",
+      content: [
+        {
+          type: "input_text",
+          text: question,
+        },
+      ],
+    },
+  };
+
+  dataChannel.send(JSON.stringify(createMessage));
   // Add this function to handle search
   const handleSearch = async (query) => {
     try {
